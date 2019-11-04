@@ -43,3 +43,14 @@ class TicTacToe:
             if i % 3 == 2:
                 s += "\n"
         return s
+
+if __name__ == '__main__':
+    ttt = TicTacToe()
+    print(ttt)
+    ttt.set(0, 0)
+    ttt.set(0, 1)
+    ttt.set(1, 0)
+    ttt.set(1, 1)
+    ttt.set(2, 0)
+    ttt.set(2, 2)
+    print(ttt)
