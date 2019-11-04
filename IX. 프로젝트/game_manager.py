@@ -1,4 +1,4 @@
-import tictactoe import TicTacToe
+from tictactoe import TicTacToe
 
 class GameManager:
     def __init__(self):
@@ -7,9 +7,23 @@ class GameManager:
     def play(self):
         #게임판 보여주자
         print(self.ttt)
-        #row, col 입력받자
+        while True:
+            #row, col 입력받자
+            row = int(input("row : "))
+            col = int(input("col : "))
+            self.ttt.set(row, col)
+            print(self.ttt)
+            #check_winner 면 끝내자
+            if self.ttt.check_winner() == "O":
+                print("O win!!!")
+                break
+            elif self.ttt.check_winner() == "X":
+                print("X win!!!")
+                break
+            elif self.ttt.check_winner() == "d":
+                print("무승부")
+                break
 
-        #check_winner 연 끝내자
 
 if __name__ == '__main__':
     gm = GameManager()
