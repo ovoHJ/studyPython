@@ -8,11 +8,17 @@ if __name__ == '__main__' :
     soup = BeautifulSoup(data, "lxml")
     print(soup)
     #print(soup)
+    html = "<html><head></head><body>"
     cartoon_titles = soup.find_all("td", attrs={"class":"title"})       # <td class="titld"> .... </td>
     for cartoon_title in cartoon_titles:                                # cartoon_titles[:2]
         title = cartoon_title.find("a").text                            # <a> text </a>
         link = cartoon_title.find("a").get("href")                      # 태그의 속성값 가져오기 <a
         print(title)
         print("https://comic.naver.com" + link)
+        html += "<a href='https://comic.naver.com{}'>{}</a>".format(link, title)
 
-    cartoon_titles
+    html += "</body></html>"
+    print(html)
+
+    with open("트럼프.html", "w", encoding="utf-8") as f:
+        f.write(html)
