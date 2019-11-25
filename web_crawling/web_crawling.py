@@ -8,7 +8,7 @@ if __name__ == '__main__' :
     soup = BeautifulSoup(data, "lxml")
     print(soup)
     #print(soup)
-    html = "<html><head></head><body>"
+    html = "<html><head><meta charset='utf-8'></head><body>"
     cartoon_titles = soup.find_all("td", attrs={"class":"title"})       # <td class="titld"> .... </td>
     for cartoon_title in cartoon_titles:                                # cartoon_titles[:2]
         title = cartoon_title.find("a").text                            # <a> text </a>
@@ -18,7 +18,10 @@ if __name__ == '__main__' :
         html += "<a href='https://comic.naver.com{}'>{}</a>".format(link, title)
 
     html += "</body></html>"
-    print(html)
+    #print(html)
+
+    outputSoup = BeautifulSoup(html, "lxml")
+    prettyHtml = str(outputSoup.prettify())
 
     with open("트럼프.html", "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(prettyHtml)
