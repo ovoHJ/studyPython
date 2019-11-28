@@ -7,6 +7,7 @@ if __name__ == '__main__' :
     print(data)
     soup = BeautifulSoup(data, "lxml")
     print(soup)
+    data.close()
     #print(soup)
     html = "<html><head><meta charset='utf-8'></head><body>"
     cartoon_titles = soup.find_all("td", attrs={"class":"title"})       # <td class="titld"> .... </td>
