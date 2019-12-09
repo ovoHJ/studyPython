@@ -11,6 +11,11 @@ if __name__ == '__main__' :
     print(data2)
     center2 = pag.center(data1)
     print(center2)
-    # 가운데 좌표 찾자
-    # 마우스 이동하자
-    # 더블클릭하자
+
+    '''
+    datas = pag.locateAllOnScreen("크롬아이콘.png")
+    for data in datas:
+        print(data)
+        center = pag.center(data)
+        pag.moveTo(center, duration=1)
+    '''
